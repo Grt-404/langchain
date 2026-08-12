@@ -37,7 +37,7 @@ class Review(baseModel):
     # sentiment: Annotated[Literal["pos", "neg"], "Return Sentiment of the review, either 'positive', 'negative', or 'neutral'"]
 
 structured_model = model.with_structured_output(Review)
-result = model.invoke("""Hi I have been using this product for 3months now. good results wrt hot flashes and sleeplessness. However, I have few questions to do product owners.
+result = structured_model.invoke("""Hi I have been using this product for 3months now. good results wrt hot flashes and sleeplessness. However, I have few questions to do product owners.
 
 1. you have mentioned 2 tablets of multivitamin per day. can I take 2 tablets in same time?
 
