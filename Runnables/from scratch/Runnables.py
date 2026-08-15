@@ -48,6 +48,10 @@ import random
 # MENTOS ZIDAGI(WITH RUNNABLES)
 from abc import ABC, abstractmethod
 class Runnable(ABC):
+
+    def invoke(self, input_dict):
+        return self.template.format(**input_dict)
+    # jo kaam format kr rha tha whi same kaam ib invoke krega har class mei so that there is a structure mantained
     @abstractmethod
     def invoke(input_data):
         pass
@@ -57,11 +61,7 @@ class NakliPromptTemplate(Runnable):
     def __init__(self, template, input_variables):
         self.template = template
         self.input_variables = input_variables
-
-    def invoke(self, input_dict):
-        return self.template.format(**input_dict)
-    # jo kaam format kr rha tha whi same kaam ib invoke krega har class mei so that there is a structure mantained
-        
+      
 
     def format(self, input_dict):
         return self.template.format(**input_dict)
